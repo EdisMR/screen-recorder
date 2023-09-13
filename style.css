@@ -1,0 +1,60 @@
+body {
+	background-color: #1d1d1d;
+	font-family: 'Roboto', Input-Sans, Tahoma, sans-serif;
+	font-size: 20px;
+	color: #ccc;
+	margin: 0;
+	user-select: none;
+}
+
+.btn-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	height: 90vh;
+}
+
+.btn{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 250;
+	height: 250;
+	background-color: #118696;
+	border-radius: 50%;
+	scale: 1;
+	transition: all 0.2s ease-in-out;
+	font-size: 45px;
+	text-transform: uppercase;
+}
+
+.btn:hover {
+	background-color: #1a9fb1;
+}
+
+.btn:active {
+	background-color: #0f7583;
+	scale: 0.96;
+}
+
+.btn:disabled {
+	background-color: #1d1d1d;
+}
+
+a,a:visited,a:hover,a:active {
+	text-decoration: none;
+	color: #1fdff8;
+}
+
+.messages{
+	margin-top: 25px;
+}
+
+@media (max-width: 500px) {
+	.btn {
+		width: 80vw;
+		height: 80vw;
+	}
+}
