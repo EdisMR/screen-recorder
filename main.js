@@ -1,7 +1,4 @@
 let start = document.getElementById('start');
-let stop = document.getElementById('stop');
-
-
 
 let mediaRecorder;
 start.addEventListener('click', async function () {
@@ -10,14 +7,6 @@ start.addEventListener('click', async function () {
 	mediaRecorder = createRecorder(stream, mimeType);
 	Messages.startedRecording();
 })
-stop.addEventListener('click', function () {
-	mediaRecorder.stop();
-	Messages.stoppedRecording();
-})
-
-
-
-
 
 async function recordScreen() {
 	return await navigator.mediaDevices.getDisplayMedia({
@@ -26,13 +15,7 @@ async function recordScreen() {
 	});
 }
 
-
-
-
-
-
 function createRecorder(stream, mimeType) {
-	// the stream data is stored in this array
 	let recordedChunks = [];
 
 	const mediaRecorder = new MediaRecorder(stream);
@@ -43,16 +26,13 @@ function createRecorder(stream, mimeType) {
 		}
 	};
 	mediaRecorder.onstop = function () {
+		Messages.stoppedRecording()
 		saveFile(recordedChunks);
 		recordedChunks = [];
 	};
 	mediaRecorder.start(200); // For every 200ms the stream data will be stored in a separate chunk.
 	return mediaRecorder;
 }
-
-
-
-
 
 function saveFile(recordedChunks) {
 
@@ -63,16 +43,15 @@ function saveFile(recordedChunks) {
 	let filename = getFileName();
 	downloadLink = URL.createObjectURL(blob);
 
-	Messages.link = `<a href="${downloadLink}" download="${filename}">Download</a>`
+	Messages.link = `<a href="${downloadLink}" download="${filename}" id="linkref">Download</a>`
 
-	window.setTimeout(() => {
+	document.getElementById('linkref').click()
+
+	/* window.setTimeout(() => {
 		URL.revokeObjectURL(blob); // clear from memory
 		Messages.link = '';
-	}, 5000);
+	}, 5000); */
 }
-
-
-
 
 function getFileName(){
 	let date = new Date();

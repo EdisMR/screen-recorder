@@ -5,13 +5,11 @@ class MessagesDefinition {
 	}
 	startedRecording() {
 		start.style.display = 'none';
-		stop.style.display = 'flex';
 		this.message = 'Recording started';
 		this.display();
 	}
 	stoppedRecording() {
 		start.style.display = 'flex';
-		stop.style.display = 'none';
 		this.message = 'Recording stopped';
 		this.display();
 	}
