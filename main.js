@@ -2,7 +2,10 @@ let start = document.getElementById('start');
 
 let mediaRecorder;
 start.addEventListener('click', async function () {
-	let stream = await recordScreen();
+	let stream = await recordScreen()
+		.catch(e => {
+			alert('Error al obtener el origen de la grabación')
+		})
 	let mimeType = 'video/webm';
 	mediaRecorder = createRecorder(stream, mimeType);
 	Messages.startedRecording();
@@ -12,8 +15,6 @@ async function recordScreen() {
 	return await navigator.mediaDevices.getDisplayMedia({
 		audio: true,
 		video: { mediaSource: "screen" }
-	}).catch(e => {
-		alert('Error al obtener el origen de la grabación')
 	})
 }
 
