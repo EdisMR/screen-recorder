@@ -16,7 +16,7 @@ body {
 	height: 90vh;
 }
 
-.btn{
+.btn {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -43,13 +43,41 @@ body {
 	background-color: #1d1d1d;
 }
 
-a,a:visited,a:hover,a:active {
+a,
+a:visited,
+a:hover,
+a:active {
 	text-decoration: none;
 	color: #1fdff8;
 }
 
-.messages{
+.messages {
 	margin-top: 25px;
+}
+
+.beating {
+	animation: beat;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+@keyframes beat {
+	0% {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+footer {
+	text-align: center;
 }
 
 @media (max-width: 500px) {

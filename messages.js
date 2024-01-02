@@ -5,7 +5,7 @@ class MessagesDefinition {
 	}
 	startedRecording() {
 		start.style.display = 'none';
-		this.message = 'Recording started';
+		this.message = `Recording started <span class='beating'>🔴</span>`;
 		this.display();
 	}
 	stoppedRecording() {
