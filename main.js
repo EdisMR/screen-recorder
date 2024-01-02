@@ -8,7 +8,6 @@ start.addEventListener('click', async function () {
 		})
 	let mimeType = 'video/webm';
 	mediaRecorder = createRecorder(stream, mimeType);
-	Messages.startedRecording();
 })
 
 async function recordScreen() {
@@ -35,6 +34,8 @@ function createRecorder(stream, mimeType) {
 			recordedChunks = [];
 		};
 		mediaRecorder.start(200); // For every 200ms the stream data will be stored in a separate chunk.
+
+		Messages.startedRecording();
 		return mediaRecorder;
 
 	} catch (e) {
